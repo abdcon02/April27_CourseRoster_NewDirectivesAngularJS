@@ -1,10 +1,23 @@
 var courseRoster = angular.module('courseRoster', ['ui.router']);
 
-courseRoster.directive('welcometext', function() {
-    return function (scope, element, attrs) {
-        element.text(scope.message + " " + attrs.message);
-    }
+courseRoster.directive('enter', function() {
+    return function(scope, element) {
+        element.bind("mouseenter", function() {
+            console.log("Im inside of you");
+        });
+    };
 });
+
+courseRoster.directive('leave', function() {
+    return function(scope, element) {
+        element.bind("mouseleave", function() {
+            console.log("Peace out Yo");
+        });
+    };
+});
+
+
+
 
 
 
