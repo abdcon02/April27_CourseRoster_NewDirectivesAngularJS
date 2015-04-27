@@ -4,10 +4,9 @@ courseRoster.directive('samplecourse', function() {
     return {
         restrict: "E",
         scope: {
-            done: '&'
+            name: '='
         },
-        template: "<input ng-model='coursename' type='text'>" + "{{coursename}}" +
-        "<button class='btn btn-sm' ng-click='done({course:coursename})'>add course</button>"
+        template: '<input type="text" ng-model="name">'
     }
 })
 
