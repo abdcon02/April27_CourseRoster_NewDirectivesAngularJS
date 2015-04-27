@@ -2,15 +2,26 @@ var courseRoster = angular.module('courseRoster', ['ui.router']);
 
 courseRoster.directive('samplecourse', function() {
     return {
-        restrict: "E",
-        scope: {
-            name: '='
+        scope:{
+            whatup:"&"
         },
-        template: '<input type="text" ng-model="name">'
+        template: "<div class='btn btn-info' ng-click='whatup()'>Hello<div>"
+    }
+});
+
+courseRoster.directive('debug', function($compile) {
+    return {
+        terminal: true,
+        priority: 1000000,
+        link: function (scope, element) {
+            var clone = element.clone();
+            element.attr("style", "color:red");
+            clone.removeAttr('debug');
+            var clonedElement = $compile(clone)(scope);
+            element.after(clonedElement);
+        }
     }
 })
-
-
 
   courseRoster.config(function($stateProvider) {
 

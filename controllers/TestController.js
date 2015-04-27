@@ -2,10 +2,8 @@ courseRoster.controller("TestCtrl", function($scope, $stateParams, CoursesFactor
 
     $scope.courses = CoursesFactory.courses;
 
-    $scope.coursename = "blah";
-    
-    $scope.logCourse = function(course){
-        alert(course + " is added!");
-    }
+    $scope.trouble = function() {
+        alert("There is trouble in sector 5");
+    };
 
 });
