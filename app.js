@@ -1,23 +1,15 @@
 var courseRoster = angular.module('courseRoster', ['ui.router']);
 
-courseRoster.directive('enter', function() {
-    return function(scope, element) {
-        element.bind("mouseenter", function() {
-            console.log("Im inside of you");
-        });
-    };
-});
-
-courseRoster.directive('leave', function() {
-    return function(scope, element) {
-        element.bind("mouseleave", function() {
-            console.log("Peace out Yo");
-        });
-    };
-});
-
-
-
+courseRoster.directive('samplecourse', function() {
+    return {
+        restrict: "E",
+        scope: {
+            done: '&'
+        },
+        template: "<input ng-model='coursename' type='text'>" + "{{coursename}}" +
+        "<button class='btn btn-sm' ng-click='done({course:coursename})'>add course</button>"
+    }
+})
 
 
 
